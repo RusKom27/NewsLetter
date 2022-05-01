@@ -1,0 +1,10 @@
+{% extends 'main/base.html' %}
+{% load components %}
+
+{% block content %}
+		{% header %}
+		<main class="d-flex position-relative flex-row">
+			{% primary_column %}
+			{% sidebar_column %}
+		</main>
+{% endblock %}

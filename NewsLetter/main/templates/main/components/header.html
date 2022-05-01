@@ -1,0 +1,12 @@
+{% load static %}
+{% block header %}
+	<header class="d-flex border-end border-0 h-100 position-fixed flex-column justify-content-between">
+		<nav class="d-flex fs-5 text-start flex-column justify-content-start">
+			<a class="py-4 fs-4" href="{% url 'home' %}"><i class="fa-solid fa-newspaper"></i> NewsLetter</a>
+			<a class="pb-4" href="{% url 'home' %}"><i class="fa-solid fa-house"></i> Главная</a>
+		</nav>
+		<nav class="d-flex fs-5 text-start flex-column justify-content-start">
+			<a class="pb-4" href="admin"><i class="fa-solid fa-screwdriver-wrench"></i> Админ панель</a>
+		</nav>
+	</header>
+{% endblock %}

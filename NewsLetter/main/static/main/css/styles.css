@@ -1,0 +1,34 @@
+
+body {
+  background-color: black;
+  color: rgb(231, 233, 234);
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+
+a,
+a:focus,
+a:hover {
+  text-decoration: none;
+  color: rgb(231, 233, 234);
+}
+
+.border-0 {
+  border-color: #494949 !important;
+}
+
+header {
+  margin-left: 100px;
+  width: 250px;
+}
+
+main {
+  left: 350px;
+}
+
+#primary-column {
+  width: 600px;
+}
+
+#sidebar-column {
+  width: 250px;
+}
