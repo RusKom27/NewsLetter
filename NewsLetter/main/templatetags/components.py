@@ -9,10 +9,16 @@ def header():
 
 
 @register.inclusion_tag('main/components/primary_column.html')
-def primary_column():
-    return
+def primary_column(page):
+    context = {'page': page}
+    return context
 
 
 @register.inclusion_tag('main/components/sidebar_column.html')
 def sidebar_column():
+    return
+
+
+@register.inclusion_tag('main/components/news_block.html')
+def news_block():
     return
