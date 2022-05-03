@@ -6,6 +6,12 @@
 			{% main %}
 		{% elif page == 'cabinet' %}
 			{% cabinet %}
+		{% else %}
+			<div class="d-flex justify-content-center w-100 h-100">
+				<div class="p-5 m-5 fs-3">
+					Страницу не найдено
+				</div>
+			</div>
 		{% endif %}
 	</div>
 {% endblock %}

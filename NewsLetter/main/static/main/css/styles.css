@@ -1,12 +1,13 @@
 :root {
-    --primary-width: 600px;
-    --sidebar-width: 250px;
+    --header-width: 15rem;
+    --primary-width: 40rem;
+    --sidebar-width: 25rem;
 }
 
 
 body {
   background-color: black;
-  color: rgb(231, 233, 234);
+  color: #E7E9EAFF;
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
 }
 
@@ -14,7 +15,7 @@ a,
 a:focus,
 a:hover {
   text-decoration: none;
-  color: rgb(231, 233, 234);
+  color: #E7E9EAFF;
 }
 
 .border-0 {
@@ -22,12 +23,12 @@ a:hover {
 }
 
 header {
-  margin-left: 100px;
-  width: 250px;
+  margin-left: 5rem;
+  width: var(--header-width);
 }
 
 main {
-  left: 350px;
+  left: 20rem;
 }
 
 #primary-column {
@@ -39,7 +40,7 @@ main {
 
 }
 
-.overlay-blur {
+.nl-overlay-blur {
   margin: 0;
 
   background: black;
@@ -48,7 +49,7 @@ main {
   backdrop-filter: blur(1.5em);
 }
 
-.page-name {
+.nl-page-name {
   width: var(--primary-width);
   padding: 0.3rem 3rem;
   font-weight: 600;
@@ -56,8 +57,53 @@ main {
   height: 3rem;
 }
 
-.avatar {
+.nl-cabinet-head {
+  height: 10rem;
+  width: var(--primary-width);
+}
+
+.nl-avatar-small {
   width: 50px;
   height: 50px;
   border-radius: 100%;
 }
+
+.nl-avatar-big {
+  width: 150px;
+  height: 150px;
+  margin-top: -10%;
+  border-radius: 100%;
+  border: black 5px solid;
+}
+
+.nl-button {
+  color: #363c41;
+  font-size: 1rem;
+  border: 0;
+  border-radius: 100%;
+  background-color: black;
+  transition: 0.2s ease-out;
+}
+
+.nl-medium-button {
+  color: #E7E9EAFF;
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+  border-radius: 1rem;
+}
+
+.nl-small-button {
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
+}
+
+.nl-bg-hover:hover {
+  color: #E7E9EAFF;
+  background-color: #363c41;;
+}
+
+.nl-blue {color: #55b6f1;}.nl-red {color: #f15555;}.nl-green {color: #55f18c;}
+
+.nl-blue-hover:hover { color: #55b6f1;}  .nl-red-hover:hover {color: #f15555;}  .nl-green-hover:hover {color: #55f18c;}

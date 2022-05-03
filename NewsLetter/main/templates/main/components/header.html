@@ -2,12 +2,23 @@
 {% block header %}
 	<header class="d-flex border-end border-0 h-100 position-fixed flex-column justify-content-between">
 		<nav class="d-flex fs-5 text-start flex-column justify-content-start">
-			<a class="py-4 fs-4" href="?page=main"><i class="fa-solid fa-newspaper"></i> NewsLetter</a>
-			<a class="pb-4" href="?page=main"><i class="fa-solid fa-house"></i> Главная</a>
-			<a class="pb-4" href="admin"><i class="fa-solid fa-screwdriver-wrench"></i> Админ панель</a>
+			<a class="nl-button nl-medium-button nl-blue-hover py-4 fs-4 " href="?page=main"><i class="fa-solid fa-newspaper"></i> NewsLetter</a>
+			<a class="nl-button nl-medium-button nl-bg-hover" href="?page=main"><i class="fa-solid fa-house"></i> Главная</a>
+			<a class="nl-button nl-medium-button nl-bg-hover" href="?page=favorite"><i class="fa-solid fa-bookmark"></i> Избранное</a>
+			<a class="nl-button nl-medium-button nl-bg-hover" href="admin"><i class="fa-solid fa-screwdriver-wrench"></i> Админ панель</a>
 		</nav>
-		<nav class="d-flex fs-5 text-start flex-column justify-content-start">
-			<a class="pb-4" href="?page=cabinet"><i class="fa-solid fa-house"></i> Кабинет</a>
+		<nav>
+			<a class="d-flex text-start flex-row justify-content-start pb-4" href="?page=cabinet&name=user">
+				<img class="nl-avatar-small mx-1" src="{% static 'img' %}/default_image.jpg" alt="">
+				<div class="px-1 d-flex flex-column justify-content-start">
+					<div class="fs-5">
+						User
+					</div>
+					<div class="text-muted">
+						@user
+					</div>
+				</div>
+			</a>
 		</nav>
 	</header>
 {% endblock %}

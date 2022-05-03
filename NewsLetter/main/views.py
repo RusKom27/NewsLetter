@@ -2,11 +2,17 @@ from django.shortcuts import render, redirect
 from .models import *
 
 
-def index(request):
-    if 'page' in request.GET and request.GET['page'] != '':
-        page = request.GET['page']
+def get_request_data(request, name):
+    if name in request.GET and request.GET[name] != '':
+        return request.GET[name]
     else:
-        page = 'main'
+        return ''
+
+
+def index(request):
+    page = get_request_data(request, 'page')
+
+    data = get_request_data(request, 'form')
 
     context = {'title': 'Main',
                'page': page}
