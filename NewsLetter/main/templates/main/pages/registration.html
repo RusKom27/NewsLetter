@@ -1,0 +1,32 @@
+{% load static %}
+{% load components %}
+{% block main %}
+	<div>
+		<div class="nl-page-name position-fixed d-flex nl-overlay-blur border-bottom border-0">
+			<span>Главная</span>
+		</div>
+			<div class="d-flex justify-content-center">
+				<form class="form-group row justify-content-center auth-form" method="post">
+					{% csrf_token %}
+					<div class="auth-input p-2">
+						{{ form.username.label }}
+						{{ form.username }}
+					</div>
+					<div class="auth-input p-2">
+						{{ form.email.label }}
+						{{ form.email }}
+					</div>
+					<div class="auth-input p-2">
+						{{ form.password1.label }}
+						{{ form.password1 }}
+					</div>
+					<div class="auth-input p-2">
+						{{ form.password2.label }}
+						{{ form.password2 }}
+					</div>
+
+					<input type="submit" class="btn my-2" name="create_user" value="Регистрация">
+				</form>
+			</div>
+	</div>
+{% endblock %}

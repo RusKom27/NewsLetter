@@ -13,7 +13,7 @@ def index(request):
     page = get_request_data(request, 'page')
 
     data = get_request_data(request, 'form')
-
+    print(data)
     context = {'title': 'Main',
                'page': page}
 
