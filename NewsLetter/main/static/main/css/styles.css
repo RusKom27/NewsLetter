@@ -101,7 +101,36 @@ main {
 
 .nl-bg-hover:hover {
   color: #E7E9EAFF;
-  background-color: #363c41;;
+  background-color: #363c41;
+}
+
+input:not([type='submit'], [type='checkbox'], [type='file']), textarea {
+  color: #E7E9EAFF;
+  padding: 0.3rem 0.5rem 0.5rem 0.5rem;
+  background-color: #363c41;
+  border-color: #363c41;
+  font-size: 1rem;
+  transition: .15s ease-in-out;
+  border-radius: 20px;
+  border-style: solid;
+  border-width: 2px;
+  outline-width: 0px;
+}
+
+input:not([type='submit'], [type='checkbox'], [type='file']):hover,
+input:not([type='submit'], [type='checkbox'], [type='file']):focus,
+textarea:hover,
+textarea:focus {
+  background-color: black;
+  border-color: #55b6f1;
+}
+
+.nl-input input[type]{
+
+}
+
+.nl-input {
+
 }
 
 .nl-blue {color: #55b6f1;}.nl-red {color: #f15555;}.nl-green {color: #55f18c;}

@@ -1,21 +1,16 @@
+{% extends 'main/base.html' %}
+{% include 'main/components/header' %}
 {% load static %}
 {% load components %}
-{% block main %}
-	<div>
-		<div class="nl-page-name position-fixed d-flex nl-overlay-blur border-bottom border-0">
-			<span>Главная</span>
-		</div>
+{% block content %}
+	<div class="nl-page-name position-fixed d-flex nl-overlay-blur border-bottom border-0">
+		<span>Главная</span>
+	</div>
+	<div id="primary-column" class="d-flex border-end border-0 h-100">
 		<div class="d-flex mt-5 flex-column w-100">
-			{% news_block %}
-			{% news_block %}
-			{% news_block %}
-			{% news_block %}
-			{% news_block %}
-			{% news_block %}
-			{% news_block %}
-			{% news_block %}
-			{% news_block %}
-
+			{% for post in posts %}
+				{% news_post post %}
+			{% endfor %}
 		</div>
 	</div>
 {% endblock %}

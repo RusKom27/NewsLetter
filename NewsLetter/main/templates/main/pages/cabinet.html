@@ -1,28 +1,98 @@
+{% extends 'main/base.html' %}
 {% load static %}
-{% block cabinet %}
-	<div class="w-100">
-		<div class="nl-page-name position-fixed d-flex nl-overlay-blur border-bottom border-0">
-			<span>User</span>
-		</div>
-		<div class="d-flex flex-column w-100 border-bottom border-0">
-			<div class="nl-cabinet-head w-100 container border-bottom border-0"></div>
-			<div class="d-flex flex-row justify-content-between">
-				<img class="nl-avatar-big mx-5" src="{% static 'img' %}/default_image.jpg" alt="">
-				<button class="nl-button nl-medium-button py-2 my-4 fs-6 nl-bg-hover">Изменить профиль</button>
-			</div>
-			<div class="ps-5 mb-3">
-				<div class="fw-bold fs-3">
-					User
-				</div>
-				<div class="text-muted fs-5 mb-3">
-					@user
-				</div>
-				<div class="fs-5 mb-3">
-					Description
-				</div>
-			</div>
+{% load components %}
 
+{% block content %}
+	<div id="primary-column" class="d-flex border-end border-0 h-100">
+		<div class="w-100">
+			<div class="nl-page-name position-fixed d-flex nl-overlay-blur border-bottom border-0">
+				<span>{{ request.user.username }}</span>
+			</div>
+			<div class="d-flex flex-column w-100 border-bottom border-0">
+				<div class="nl-cabinet-head w-100 container border-bottom border-0"></div>
+				<div class="d-flex flex-row justify-content-between">
+					<img class="nl-avatar-big mx-5" src="static{{ request.user.nluser.profile_pic.url }}" alt="">
+					<div class="mx-5"></div>
+					<a href="{% url 'cabinet' %}" class="nl-button nl-medium-button py-2 my-4 fs-6 nl-bg-hover">Изменить профиль</a>
+					<a href="{% url 'unauth' %}" class="nl-button nl-medium-button py-2 my-4 fs-6 nl-bg-hover nl-red">Выход</a>
+				</div>
+				<div class="ps-5 mb-3">
+					<div class="fw-bold fs-3">
+						{{ request.user.nluser.name }}
+					</div>
+					<div class="text-muted fs-5 mb-3">
+						{{ request.user.nluser.tag }}
+					</div>
+					<div class="fs-5 mb-3">
+						{{ request.user.nluser.email }}
+					</div>
+				</div>
+			</div>
+			<div class="d-flex flex-column border-bottom border-0">
 
+				<form id="create_post" class="d-flex my-3 mx-3 flex-column" method="post">
+					{% csrf_token %}
+					<div class="file-upload-content">
+						<img class="img-fluid file-upload-image" src="#" alt="your image" />
+					</div>
+					<input class="file-upload-input invisible"
+								 type='file'
+								 onchange="readURL(this);"
+								 accept="image/*"
+								 name="image"
+					/>
+					<textarea name="text" form="create_post"></textarea>
+					<div class="d-flex flex-row justify-content-between">
+						<div class="d-flex flex-row justify-content-start">
+							<button class="file-upload-btn nl-button nl-medium-button fs-5 nl-bg-hover my-2"
+											type="button"
+											onclick="$('.file-upload-input').trigger( 'click' )"><i class="fa-solid fa-image"></i>
+							</button>
+							<button type="button"
+											onclick="removeUpload()"
+											class="remove-image nl-button nl-medium-button fs-5 nl-bg-hover nl-red-hover my-2"><i class="fa-solid fa-trash-can"></i>
+							</button>
+						</div>
+						<input type="submit"
+									 class="nl-button nl-medium-button fs-5 nl-bg-hover my-2"
+									 name="create"
+									 value="Создать">
+					</div>
+				</form>
+			</div>
+			<div class="d-flex flex-column w-100">
+				{% for post in posts %}
+					{% news_post post %}
+				{% endfor %}
+			</div>
 		</div>
+		<script>
+			$('.file-upload-content').hide();
+			$('.remove-image').hide();
+			function readURL(input) {
+				if (input.files && input.files[0]) {
+
+					var reader = new FileReader();
+
+					reader.onload = function(e) {
+						$('.remove-image').show();
+
+						$('.file-upload-image').attr('src', e.target.result);
+						$('.file-upload-content').show();
+					};
+
+					reader.readAsDataURL(input.files[0]);
+
+				} else {
+					removeUpload();
+				}
+			}
+
+			function removeUpload() {
+				$('.file-upload-input').replaceWith($('.file-upload-input').clone());
+				$('.file-upload-content').hide();
+				$('.remove-image').hide();
+			}
+		</script>
 	</div>
 {% endblock %}

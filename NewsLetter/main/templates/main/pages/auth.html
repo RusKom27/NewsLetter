@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% load components %}
+{% block content %}
+	<div class="nl-page-name position-fixed d-flex nl-overlay-blur border-bottom border-0">
+		<span>Вход</span>
+	</div>
+	<div id="primary-column" class="d-flex justify-content-center border-end border-0 h-100">
+		<form class="d-flex mt-5 flex-column" method="post">
+			{% csrf_token %}
+			<div class="p-2">
+				<div class="text-muted">Имя пользователя</div>
+				<input type="text" name="username">
+			</div>
+			<div class="p-2">
+				<div class="text-muted">Пароль</div>
+				<input type="password" name="password">
+			</div>
+			<input type="submit" class="nl-button nl-medium-button fs-5 nl-bg-hover my-2" name="login" value="Вход">
+		</form>
+	</div>
+{% endblock %}

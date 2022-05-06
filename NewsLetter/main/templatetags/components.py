@@ -4,21 +4,20 @@ register = template.Library()
 
 
 @register.inclusion_tag('main/components/header.html')
-def header():
-    return
-
-
-@register.inclusion_tag('main/components/primary_column.html')
-def primary_column(page):
-    context = {'page': page}
+def header(request):
+    context = {'request': request}
     return context
 
 
 @register.inclusion_tag('main/components/sidebar_column.html')
-def sidebar_column():
-    return
+def sidebar_column(request):
+    context = {'request': request}
+    return context
 
 
-@register.inclusion_tag('main/components/news_block.html')
-def news_block():
-    return
+@register.inclusion_tag('main/components/news_post.html')
+def news_post(post):
+    context = {'post': post}
+    return context
+
+

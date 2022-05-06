@@ -1,30 +1,37 @@
 {% load static %}
-{% block news_block %}
-	<div id="1" class="d-flex p-3 flex-row border-bottom border-0 w-100">
-		<a href="?page=cabinet&name=author">
-			<img class="nl-avatar-small mx-1" src="{% static 'img' %}/default_image.jpg" alt="">
+{% block news_post %}
+	<div id="{{ post.content.id }}" class="d-flex p-3 flex-row border-bottom border-0 w-100">
+		<a href="{% url 'cabinet' %}?user_tag={{ post.author.nluser.tag }}">
+			<img class="nl-avatar-small mx-1" src="static{{ post.author.nluser.profile_pic.url }}" alt="">
 		</a>
 		<div class="d-flex flex-column justify-content-start mx-1 w-100">
 			<div class="d-flex flex-row justify-content-between">
-				<a href="?page=cabinet&name=author" class="d-flex flex-row justify-content-start">
+				<a href="{% url 'cabinet' %}?user_tag={{ post.author.nluser.tag }}" class="d-flex flex-row justify-content-start">
 					<div class="fw-bold">
-						Author
+						{{ post.author.nluser.name }}
 					</div>
 					<div class="px-2 text-muted">
-						@author
+						{{ post.author.nluser.tag }}
 					</div>
 				</a>
 				<div>
 					<button class="nl-button nl-small-button nl-blue-hover nl-bg-hover"><i class="fa-solid fa-ellipsis"></i></button>
 				</div>
 			</div>
-			<div class="d-flex">
-				found this png today. can you guess which tutorial this is from? only a true pixel master would know! :>
+			<div class="d-flex flex-column">
+				{{ post.content.text }}
+				{% if post.content.image != '' %}
+					<div class="d-flex justify-content-center">
+						<img class="img-fluid w-75 p-4" src="static/img/{{ post.content.image }}" alt="">
+					</div>
+
+				{% endif %}
+
 			</div>
 			<div class="d-flex pt-2 flex-row justify-content-start">
 				<div class="w-100">
-					<a href="?page=main&like=1#1" class="nl-button nl-red-hover">
-						<i class="fa-solid fa-heart"></i> 0
+					<a href="{% url 'set_like' %}?like={{ post.content.id }}#{{ post.content.id }}" class="nl-button nl-red-hover">
+						<i class="fa-solid fa-heart"></i> {{ post.likes }}
 					</a>
 				</div>
 				<div class="w-100">
