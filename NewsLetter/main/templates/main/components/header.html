@@ -9,11 +9,13 @@
 				 href="{% url 'main' %}"><i class="fa-solid fa-house"></i> Главная
 			</a>
 			<a class="nl-button nl-medium-button nl-bg-hover"
-				 href="?page=favorite"><i class="fa-solid fa-bookmark"></i> Избранное
+				 href="{% url 'favorites' %}"><i class="fa-solid fa-bookmark"></i> Избранное
 			</a>
+			{% if request.user.is_staff %}
 			<a class="nl-button nl-medium-button nl-bg-hover"
 				 href="admin"><i class="fa-solid fa-screwdriver-wrench"></i> Админ панель
 			</a>
+			{% endif %}
 		</nav>
 		<nav class="d-flex flex-column">
 			{% if request.user.is_authenticated %}

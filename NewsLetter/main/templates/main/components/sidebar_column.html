@@ -1,6 +1,29 @@
 {% load static %}
 {% block sidebar %}
-	<div id="sidebar-column" class="d-flex h-100">
-		<p>Sidebar</p>
+	<div id="sidebar-column" class="d-flex p-4 flex-column position-fixed">
+		<div class="d-flex w-100">
+			<form class="w-100 d-flex flex-row" method="post">
+				{% csrf_token %}
+				<input class="w-75 my-2 h-75 fw-bold" type="text" name="search">
+				<button type="submit" class="nl-button nl-medium-button fs-5 nl-bg-hover " name="search_submit" value="">
+					<i class="fa-solid fa-magnifying-glass"></i>
+				</button>
+			</form>
+		</div>
+		<div class="d-flex tags-panel mt-3 flex-column w-75">
+			<div class="fs-4 p-3 fw-bolder">
+				Самые популярные теги за последнее время
+			</div>
+			<div id="{{ tag.id }}" class="d-flex flex-column w-100">
+			{% for tag in request.user.nluser.tags.all %}
+				<a class="py-2 tag-button px-3 fs-5 fw-bold" href="main?tag={{ tag.tag }}">{{ tag.tag }}</a>
+			{% endfor %}
+			</div>
+		</div>
+		<div class="d-flex mt-3 flex-column w-75">
+			<p class="text-muted small">Сайт разработал Михаил (@Miracyber) Щербаков</p>
+			<p class="text-muted small">Контакты</p>
+			<p class="text-muted small">@NewsLetter</p>
+		</div>
 	</div>
 {% endblock %}

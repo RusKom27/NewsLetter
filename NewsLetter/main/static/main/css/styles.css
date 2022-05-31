@@ -1,7 +1,7 @@
 :root {
     --header-width: 15rem;
     --primary-width: 40rem;
-    --sidebar-width: 25rem;
+    --sidebar-width: 30rem;
 }
 
 
@@ -36,6 +36,7 @@ main {
 }
 
 #sidebar-column {
+  left: 66rem;
   width: var(--sidebar-width);
 
 }
@@ -125,14 +126,31 @@ textarea:focus {
   border-color: #55b6f1;
 }
 
-.nl-input input[type]{
-
-}
-
-.nl-input {
-
+.tag-word {
+  color: #55b6f1;
 }
 
 .nl-blue {color: #55b6f1;}.nl-red {color: #f15555;}.nl-green {color: #55f18c;}
 
 .nl-blue-hover:hover { color: #55b6f1;}  .nl-red-hover:hover {color: #f15555;}  .nl-green-hover:hover {color: #55f18c;}
+
+.search_field {
+  width: 1rem;
+}
+
+.tags-panel {
+  border-radius: 20px;
+  background-color:  black;
+  border: 1px solid #50565b;
+}
+
+.tag-button {
+  margin-bottom: 20px;
+  transition: .15s ease-in-out;
+  border: 1px solid transparent;
+}
+
+.tag-button:hover {
+  background-color: black;
+  border: 1px solid #50565b;
+}

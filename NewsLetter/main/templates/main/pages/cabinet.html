@@ -30,7 +30,7 @@
 			</div>
 			<div class="d-flex flex-column border-bottom border-0">
 
-				<form id="create_post" class="d-flex my-3 mx-3 flex-column" method="post">
+				<form id="create_post" class="d-flex my-3 mx-3 flex-column" method="post" enctype="multipart/form-data">
 					{% csrf_token %}
 					<div class="file-upload-content">
 						<img class="img-fluid file-upload-image" src="#" alt="your image" />
@@ -94,5 +94,6 @@
 				$('.remove-image').hide();
 			}
 		</script>
+		<script src="static/main/scripts/tag_parser.js"></script>
 	</div>
 {% endblock %}

@@ -1,10 +1,9 @@
 {% extends 'main/base.html' %}
-{% include 'main/components/header' %}
 {% load static %}
 {% load components %}
 {% block content %}
 	<div class="nl-page-name position-fixed d-flex nl-overlay-blur border-bottom border-0">
-		<span>Главная</span>
+		<span>{{ title }}</span>
 	</div>
 	<div id="primary-column" class="d-flex border-end border-0 h-100">
 		<div class="d-flex mt-5 flex-column w-100">
@@ -13,4 +12,6 @@
 			{% endfor %}
 		</div>
 	</div>
+	<script src="static/main/scripts/tag_parser.js"></script>
+	<script src="static/main/scripts/popup.js"></script>
 {% endblock %}

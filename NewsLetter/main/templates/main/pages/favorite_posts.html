@@ -1,0 +1,16 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% load components %}
+{% block content %}
+	<div class="nl-page-name position-fixed d-flex nl-overlay-blur border-bottom border-0">
+		<span>{{ title }}</span>
+	</div>
+	<div id="primary-column" class="d-flex border-end border-0 h-100">
+		<div class="d-flex mt-5 flex-column w-100">
+			{% for post in posts %}
+				{% news_post post %}
+			{% endfor %}
+		</div>
+	</div>
+	<script src="static/main/scripts/tag_parser.js"></script>
+{% endblock %}
